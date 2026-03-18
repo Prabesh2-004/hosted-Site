@@ -15,7 +15,7 @@ export default function App() {
 
   const fetchSubmissions = async () => {
     try {
-      const res = await axios.get(`${API}/contacts`);
+      const res = await axios.get(`${API}/api/contacts`);
       setSubmissions(res.data);
     } catch (err) {
       console.error(err);
@@ -30,7 +30,7 @@ export default function App() {
     e.preventDefault();
     setStatus("loading");
     try {
-      await axios.post(`${API}/contact`, form);
+      await axios.post(`${API}/api/contact`, form);
       setStatus("success");
       setForm({ name: "", email: "", message: "" }); // Reset form
       fetchSubmissions(); // Refresh list
